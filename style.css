@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #294555;
+    color: #fff;
+}
+h2 {
+    width: 600px;
+    margin: 0 auto;
+}
+pre {
+    width: 600px;
+    max-height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px 0;
+}
+
+.jlider_frame {
+    position: relative;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}

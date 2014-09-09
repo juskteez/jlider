@@ -1,0 +1,474 @@
+/*! 
+ * Jlider - Slider plugin by Juskteez
+ *
+ * Contact me: vhuyphong@gmail.com
+ *
+ * version: 1.0
+ */
+.jlider_frame .jlider_control_num button, .jlider_frame .jlider_control_num, .jlider_control, .jlider li .jLsCaption, .jlider_loading {
+    -webkit-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+.jlider_frame, .jlider_frame .jlider {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    margin: 0 auto;
+}
+.jlider_frame.jliderFull {  
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.jlider_frame.jliderFull, .jlider_frame.jliderFull .jlider,
+.jlider_frame:fullscreen, .jlider_frame:fullscreen .jlider {
+    width: 100% !important;
+    height: 100% !important;
+}
+.jlider_frame.jliderFull, .jlider_frame:fullscreen {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.jlider_frame:-ms-full-screen, .jlider_frame:-ms-full-screen .jlider {
+    width: 100% !important;
+    height: 100% !important;
+}
+.jlider_frame:-ms-full-screen {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.jlider_frame:-moz-full-screen, .jlider_frame:-moz-full-screen .jlider {
+    width: 100% !important;
+    height: 100% !important;
+}
+.jlider_frame:-moz-full-screen {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.jlider_frame:-webkit-full-screen, .jlider_frame:-webkit-full-screen .jlider {
+    width: 100% !important;
+    height: 100% !important;
+}
+.jlider_frame:-webkit-full-screen {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.jlider_frame {
+    position: relative;
+    overflow: hidden;
+    background-color: #333;
+}
+.jlider.noCopy:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+}
+.jlider_frame *, .jlider_frame *:before, .jlider_frame *:after {box-sizing: border-box;-moz-box-sizing: border-box;}
+.jlider_frame *:focus {outline: none;}
+.jlider_frame .jlider li {
+    position: absolute;
+    background-color: #333;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 0;
+    opacity: 0;
+}
+.jlider li .jLsCaption {
+    left: 0;
+    width: 100%;
+    bottom: 24px;
+    position: absolute;
+    padding: 6px 10px;
+    background-color: rgba(0,0,0,0.6);
+    text-align: left;
+    font-size: 12px;
+    box-shadow: 0 0 1px rgba(255,255,255,0.2);
+    opacity: 0;
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    -ms-transform: scale(0.4);
+    -o-transform: scale(0.4);
+    transform: scale(0.4);
+}
+.jlider_line .jlider li .jLsCaption {bottom: 6px;}
+.hover .jlider li .jLsCaption {
+    bottom: 0;
+} .hover:hover .jlider li .jLsCaption {
+    bottom: 24px;
+}
+.jlider_line.hover:hover .jlider li .jLsCaption {bottom: 6px;}
+.jlider li.jactive .jLsCaption {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -webkit-transition-delay: 0.6s;
+    -moz-transform: scale(1);
+    -moz-transition-delay: 0.6s;
+    -ms-transform: scale(1);
+    -ms-transition-delay: 0.6s;
+    -o-transform: scale(1);
+    -o-transition-delay: 0.6s;
+    transform: scale(1);
+    transition-delay: 0.6s;
+}
+.jlider_frame .jlider li.jactive {z-index: 3;opacity: 1;}
+.jlider_frame .jlider li.justDeactive {z-index: 2;opacity: 1;}
+.jlider > li.single_photo > img, .jlider > li.single_photo > .fake_photo {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.jlider > li.single_photo > img {
+    opacity: 0;
+}
+.jlider > li.single_photo > .fake_photo {
+    background-repeat: no-repeat;
+    background-position: center;
+} .jlider > li.single_photo.joriz > .fake_photo {
+    background-size: 100% auto;
+} .jlider > li.single_photo.jerti > .fake_photo {
+    background-size: auto 100%;
+}
+.jlider_frame .jlider_control_num {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    list-style: none;
+    z-index: 9;
+}
+.hover > .jlider_control_num {
+    bottom: -24px;
+} .jlider_line.hover > .jlider_control_num {
+    bottom: -6px;
+} .hover:hover > .jlider_control_num {
+    bottom: 0;
+}
+.jlider_frame .jlider_control_num button {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0 10px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    height: 24px;
+    vertical-align: top;
+}
+.jlider_frame .jlider_control_num button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+.jlider_frame .jlider_control_num button.jactive {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+.jlider_line .jlider_control_num {
+    line-height: 5px;
+    height: 6px;
+    padding-top: 1px;
+}
+.jlider_line .jlider_control_num button {
+    height: 5px;
+    padding: 0;
+    width: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.jlider_line .jlider_control_num button:first-child {border-left: none;}
+.jlider_dot .jlider_control_num button {
+    height: 10px;
+    padding: 0;
+    width: 10px;
+    margin: 7px 4px;
+    border-radius: 100%;
+    box-shadow: 0 0 1px;
+}
+.jlider_frame .jlider_control {
+    border: none;
+    background: rgba(0, 0, 0, 0.5) url(cont.svg) center left no-repeat;
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    cursor: pointer;
+    z-index: 9;
+}
+.jlider_control.prev {
+    background-position: -40px 50%;
+}
+.jlider_frame .jlider_control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.jlider_frame .jlider_control.prev {
+    left: 0;
+} .hover > .jlider_control.prev {
+    left: -45px;
+} .hover:hover > .jlider_control.prev {
+    left: 0;
+}
+.jlider_frame .jlider_control.next {
+    right: 0;
+} .hover > .jlider_control.next {
+    right: -45px;
+} .hover:hover > .jlider_control.next {
+    right: 0;
+}
+.pause {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border: none;
+    z-index: 9;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.4) url(pau.svg) top left;
+    -webkit-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.pause.play, .pause.pauseByhover {
+    background-position: -24px 0;
+}
+.jlider_fullScreen {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    z-index: 9;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.4) url(full.svg) top left;
+    -webkit-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.jlider_frame.jliderFull .jlider_fullScreen, .jlider_frame:fullscreen .jlider_fullScreen {
+    background-position: -24px 0;
+}
+.jlider_frame:-ms-full-screen .jlider_fullScreen {
+    background-position: -24px 0;
+}
+.jlider_frame:-moz-full-screen .jlider_fullScreen {
+    background-position: -24px 0;
+}
+.jlider_frame:-webkit-full-screen .jlider_fullScreen {
+    background-position: -24px 0;
+}
+.hover > .pause, .hover > .jlider_fullScreen {
+    top: -30px;
+    -webkit-transition: top 0.6s ease, left 0.6s ease, background-position 0.2s ease;
+    -moz-transition: top 0.6s ease, left 0.6s ease, background-position 0.2s ease;
+    -ms-transition: top 0.6s ease, left 0.6s ease, background-position 0.2s ease;
+    -o-transition: top 0.6s ease, left 0.6s ease, background-position 0.2s ease;
+    transition: top 0.6s ease, left 0.6s ease, background-position 0.2s ease;
+} .hover:hover > .pause, .hover:hover > .jlider_fullScreen {
+    top: 5px;
+    -webkit-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+.hide > .jlider_control_num, .hide > .jlider_control, .hide > .pause {
+    display: none;
+}
+.jlider_progress {
+    position: absolute;
+    z-index: 9;
+}
+.jlider_progress.jlider_pgBar {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #E72F2F;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+.jlider_loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #222;
+    overflow: hidden;
+}
+.jLoad_Per {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    color: #aaa;
+    font-family: Tahoma;
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: center;
+    top: 50%;
+    line-height: 50px;
+    margin-top: -25px;
+}
+.jLoad_Per:before {
+    content: "";
+    position: absolute;
+    width: 112px;
+    height: 116px;
+    background: url(load.svg) center no-repeat;
+    border-top: 2px solid red;
+    border-right: 0 solid transparent;
+    border-bottom: 2px solid transparent;
+    border-left: 0 solid transparent;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    margin-top: -58px;
+    margin-left: -56px;
+    -webkit-animation: loaDots 0.4s linear infinite;
+    -moz-animation: loaDots 0.4s linear infinite;
+    -ms-animation: loaDots 0.4s linear infinite;
+    -o-animation: loaDots 0.4s linear infinite;
+    animation: loaDots 0.4s linear infinite;
+}
+@-webkit-keyframes loaDots {
+    0%   {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes loaDots {
+    0%   {-moz-transform: rotate(0deg);}
+    100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes loaDots {
+    0%   {-ms-transform: rotate(0deg);}
+    100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes loaDots {
+    0%   {-o-transform: rotate(0deg);}
+    100% {-o-transform: rotate(360deg);}
+}
+@keyframes loaDots {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.hide_jLoad {
+    -webkit-transform: rotateY(90deg scale(0));
+    -moz-transform: rotateY(90deg scale(0));
+    -ms-transform: rotateY(90deg scale(0));
+    -o-transform: rotateY(90deg scale(0));
+    transform: rotateY(90deg scale(0));
+    opacity: 0;
+}
+
+
+/************************************
+            VIEW EFFECTS
+************************************/
+/* Scale Out */
+.scaleOut > li.jactive.single_photo > .fake_photo {
+    -webkit-animation: jview_scaleOut 6s linear;
+    -webkit-transform: scale(1.2);
+    -moz-animation: jview_scaleOut 6s linear;
+    -moz-transform: scale(1.2);
+    -ms-animation: jview_scaleOut 6s linear;
+    -ms-transform: scale(1.2);
+    -o-animation: jview_scaleOut 6s linear;
+    -o-transform: scale(1.2);
+    animation: jview_scaleOut 6s linear;
+    transform: scale(1.2);
+}
+@-webkit-keyframes jview_scaleOut {
+    0%   {-webkit-transform: scale(1);}
+    100% {-webkit-transform: scale(1.2);}
+}
+@-moz-keyframes jview_scaleOut {
+    0%   {-moz-transform: scale(1);}
+    100% {-moz-transform: scale(1.2);}
+}
+@-ms-keyframes jview_scaleOut {
+    0%   {-ms-transform: scale(1);}
+    100% {-ms-transform: scale(1.2);}
+}
+@-o-keyframes jview_scaleOut {
+    0%   {-o-transform: scale(1);}
+    100% {-o-transform: scale(1.2);}
+}
+@keyframes jview_scaleOut {
+    0%   {transform: scale(1);}
+    100% {transform: scale(1.2);}
+}
+
+/* Scale In */
+.scaleIn > li.jactive.single_photo > .fake_photo {
+    -webkit-animation: jview_scaleIn 12s linear infinite;
+    -webkit-transform: scale(1);
+    -moz-animation: jview_scaleIn 12s linear infinite;
+    -moz-transform: scale(1);
+    -ms-animation: jview_scaleIn 12s linear infinite;
+    -ms-transform: scale(1);
+    -o-animation: jview_scaleIn 12s linear infinite;
+    -o-transform: scale(1);
+    animation: jview_scaleIn 12s linear infinite;
+    transform: scale(1);
+}
+@-webkit-keyframes jview_scaleIn {
+    0%   {-webkit-transform: scale(1.4) rotate(10deg);}
+    50%  {-webkit-transform: scale(1) rotate(0deg);}
+    100% {-webkit-transform: scale(1.4) rotate(10deg);}
+}
+@-moz-keyframes jview_scaleIn {
+    0%   {-moz-transform: scale(1.4) rotate(10deg);}
+    50%  {-moz-transform: scale(1) rotate(0deg);}
+    100% {-moz-transform: scale(1.4) rotate(10deg);}
+}
+@-ms-keyframes jview_scaleIn {
+    0%   {-ms-transform: scale(1.4) rotate(10deg);}
+    50%  {-ms-transform: scale(1) rotate(0deg);}
+    100% {-ms-transform: scale(1.4) rotate(10deg);}
+}
+@-o-keyframes jview_scaleIn {
+    0%   {-o-transform: scale(1.4) rotate(10deg);}
+    50%  {-o-transform: scale(1) rotate(0deg);}
+    100% {-o-transform: scale(1.4) rotate(10deg);}
+}
+@keyframes jview_scaleIn {
+    0%   {transform: scale(1.4) rotate(10deg);}
+    50%  {transform: scale(1) rotate(0deg);}
+    100% {transform: scale(1.4) rotate(10deg);}
+}
