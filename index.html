@@ -1,46 +1,342 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Jlider by juskteez</title>
-  </head>
+<head>
+	<meta charset="utf-8">
+	<title>Jlider - Images slider</title>
+	<link rel="stylesheet" type="text/css" href="jlider/jlider.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/atelier-dune.dark.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<script type="text/javascript" src="lib.js"></script>
+	<script type="text/javascript" src="jlider/jlider.min.js"></script>
+	<script type="text/javascript" src="highlight.pack.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		// Slider #1
+	    $("#jl1").jliderSlide();
 
-  <body>
-    <div id="container">
-      <div class="inner">
+		// Slider #2
+		$("#jl2").jliderSlide({
+	        slideEffect  : "random",
+	        visiTime     : 6000,
+	        autoPlay     : false,
+	        width        : 600,
+	        height       : 320,
+	        responsive   : false,
+	        photoCaption : true,
+	        noCopy       : true,
+	        hideControl  : "hover",
+	        navType      : "line",
+	        Loaded         : function (curSlide) {
+	                            console.log('Loaded...!');
+	                        },
+	        pressPlay      : function (curSlide) {
+	                            console.log('Pressed Play button...!');
+	                        },
+	        pressPause     : function (curSlide) {
+	                            console.log('Pressed Pause button...!');
+	                        }
+	    });
 
-        <header>
-          <h1>Jlider</h1>
-          <h2>A jQuery plugin that help you bring slideshow into your web pages. First just simple then it will be grow and become bigger. Join if you interested!</h2>
-        </header>
+	    // Highlighter
+	    hljs.initHighlightingOnLoad();
+	});
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h1>Jlider</h1>
+			<h4>A jQuery plugin that help you bring slideshow into your web pages. First just simple then it will be grow and become bigger. Join if you interested!</h4>
+			<ul class="menu" clearfix>
+				<li><a href="#demo">Demo</a></li>
+				<li><a href="#getting-started">Getting Started</a></li>
+				<li><a href="#configurations">Configcurations</a></li>
+				<li><a href="#disqus_thread">Discustion</a></li>
+			</ul>
+		</header>
+		<nav id="navbar">
+			<ul>
+				<li><a href="https://github.com/juskteez/jlider/zipball/master" id="download-zip">Download <b>.zip</b></a></li>
+				<li><a href="https://github.com/juskteez/jlider/tarball/master" id="download-tar-gz">Download <b>.tar.gz</b></a></li>
+				<li><a href="https://github.com/juskteez/jlider" id="view-on-github">View on <b>Github</b></a></li>
+			</ul>
+		</nav>
+		<h2 id="demo">Slider #1 Basic Usage</h2>
+		<ul class="jlider" id="jl1">
+			<li><img src="img/1.jpg" alt="Lorem ipsum dolor sit amet." title="Image Title 1"/></li>
+			<li><img src="img/2.jpg" alt="2.jpg" title="Image Title 2"/></li>
+			<li><img src="img/3.jpg" title="Image Title 3"/></li>
+			<li><img src="img/4.jpg" title="Image Title 4"/></li>
+			<li><img src="img/5.jpg" alt="5.jpg" title="Image Title 5"/></li>
+			<li><img src="img/6.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit" title="Image Title 6"/></li>
+			<li><img src="img/7.jpg" alt="7.jpg" title="Image Title 7"/></li>
+			<li><img src="img/8.jpg" alt="8.jpg" title="Image Title 8"/></li>
+			<li><img src="img/9.jpg" alt="9.jpg" title="Image Title 9"/></li>
+			<li><img src="img/10.jpg" alt="10.jpg" title="Image Title 10"/></li>
+			<li><img src="img/11.jpg" alt="Lorem ipsum dolor sit amet." title="Image Title 11"/></li>
+			<li><img src="img/12.jpg" alt="12.jpg" title="Image Title 12"/></li>
+			<li><img src="img/13.jpg" title="Image Title 13"/></li>
+			<li><img src="img/14.jpg" title="Image Title 14"/></li>
+			<li><img src="img/15.jpg" alt="15.jpg" title="Image Title 15"/></li>
+			<li><img src="img/16.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit" title="Image Title 16"/></li>
+			<li><img src="img/17.jpg" alt="17.jpg" title="Image Title 17"/></li>
+			<li><img src="img/18.jpg" alt="18.jpg" title="Image Title 18"/></li>
+			<li><img src="img/19.jpg" alt="19.jpg" title="Image Title 19"/></li>
+			<li><img src="img/20.jpg" alt="20.jpg" title="Image Title 20"/></li>
+			<li><img src="img/21.jpg" alt="21.jpg" title="Image Title 21"/></li>
+			<li><img src="img/22.jpg" alt="22.jpg" title="Image Title 22"/></li>
+			<li><img src="img/23.jpg" title="Image Title 23"/></li>
+			<li><img src="img/24.jpg" title="Image Title 24"/></li>
+			<li><img src="img/25.jpg" alt="25.jpg" title="Image Title 25"/></li>
+		</ul>
+		<pre><code>
+    $("#jl1").jliderSlide();
+	    </code></pre>
+		<hr/>
+		<h2>Slider #2 Custom Usage</h2>
+		<ul class="jlider" id="jl2">
+			<li><img src="nfs/2_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." title="Image Title 1"/></li>
+			<li><img src="nfs/3_1.jpg" alt="3.jpg" title="Image Title 2"/></li>
+			<li><img src="nfs/1_1.jpg" title="Image Title 3"/></li>
+			<li><img src="nfs/4_1.jpg" title="Image Title 4"/></li>
+			<li><img src="nfs/5_1.jpg" alt="5.jpg" title="Image Title 5"/></li>
+			<li><img src="nfs/6_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="Image Title 6"/></li>
+			<li><img src="nfs/7_1.jpg" alt="7.jpg" title="Image Title 7"/></li>
+		</ul>
+		<pre><code>
+    $("#jl2").jliderSlide({
+        slideEffect  : "random",
+        visiTime     : 6000,
+        autoPlay     : true,
+        width        : 600,
+        height       : 320,
+        responsive   : false,
+        photoCaption : true,
+        noCopy       : true,
+        hideControl  : "hover",
+        fullScreen   : true,
+        navType      : "line",
+        Loaded       : function (curSlide) {
+                        	console.log('Loaded...!');
+                    	},
+        pressPlay    : function (curSlide) {
+                            console.log('Pressed Play button...!');
+                        },
+        pressPause   : function (curSlide) {
+                            console.log('Pressed Pause button...!');
+                        }
+    });
+		</code></pre>
+		<hr/>
+		<h2 id="getting-started">Getting Started</h2>
+		<h3>Installation:</h3>
+		<a href="#navbar">Download</a> and extract your file then copy the "jlider" folder to your site folder.<br/><br/>
+		Next!.. Drop this code right <b>above</b> your <b>main stylesheet</b> tag, in order to custom style for your slider:
+		<pre><code class="html">&#60;link rel="stylesheet" type="text/css" href="jlider/jlider.css"/&#62;</code></pre>
+		Then drop this code right <b>after</b> your <b>jQuery library</b> tag:
+		<pre><code class="html">&#60;script type="text/javascript" src="jlider/jlider.min.js"&#62;&#60;/script&#62;</code></pre>
+		<h3>Usage script:</h3>
+		Your usage script should be place after the tag above:
+		<pre><code class="html">
+&#60;script type="text/javascript"&#62;
+    $("#yourSelector").jliderSlide();
+&#60;/script&#62;
+    	</code></pre>
+    	<h3>Basic template:</h3>
+    	<pre><code class="html">
+&#60;ul class="jlider" id="yourSelector"&#62;
+    &#60;li&#62;&#60;img src="path/to/image/1.jpg" alt="Photo caption content goes here" title="Your Image Title 1"/&#62;&#60;/li&#62;
+    &#60;li&#62;&#60;img src="path/to/image/2.jpg" alt="Your alt" title="Your Image Title 2"/&#62;&#60;/li&#62;
+    &#60;li&#62;&#60;img src="path/to/image/3.jpg" title="Your Image Title 3"/&#62;&#60;/li&#62;
+    &#60;!-- And more images --&#62;
+&#60;/ul&#62;
+    	</code></pre>
+		<hr/>
+		<h2 id="configurations">Configurations</h2>
+		<table>
+			<thead>
+				<tr>
+					<td>Property</td>
+					<td>Type</td>
+					<td>Default value</td>
+					<td>Description</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>slideEffect</td>
+					<td>string</td>
+					<td>fade</td>
+					<td>
+						Single slide effect.<br/>
+						<i>Values: [fade | slide | scaleIn | scaleOut | random]</i></td>
+				</tr>
+				<tr>
+					<td>viewEffect</td>
+					<td>string</td>
+					<td>no</td>
+					<td>
+						Slide viewing effects.<br/>
+						<i>Values: [no | scaleIn | scaleOut]</i></td>
+				</tr>
+				<tr>
+					<td>visiTime</td>
+					<td>number</td>
+					<td>4000</td>
+					<td>
+						Time between a slide(ms).</td>
+				</tr>
+				<tr>
+					<td>visiProgress</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>
+						Show progress bar.</td>
+				</tr>
+				<tr>
+					<td>autoPlay</td>
+					<td>boolean</td>
+					<td>fade</td>
+					<td>
+						Auto play slider</td>
+				</tr>
+				<tr>
+					<td>width</td>
+					<td>number</td>
+					<td>600</td>
+					<td>
+						Slider width(px).</td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td>number</td>
+					<td>380</td>
+					<td>
+						Slider height(px).</td>
+				</tr>
+				<tr>
+					<td>photoCaption</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>
+						Turn on text caption for slide</td>
+				</tr>
+				<tr>
+					<td>noCopy</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>
+						Avoid people to save your photos.</td>
+				</tr>
+				<tr>
+					<td>hideControl</td>
+					<td>string</td>
+					<td>visible</td>
+					<td>
+						Control buttons style.<br/>
+						<i>Values: [visible | hover | hide]</i></td>
+				</tr>
+				<tr>
+					<td>fullScreen</td>
+					<td>boolean</td>
+					<td>fade</td>
+					<td>
+						Allow fullscreen in your slider.</td>
+				</tr>
+				<tr>
+					<td>navType</td>
+					<td>string</td>
+					<td>dot</td>
+					<td>
+						Navigation button type.<br/>
+						<i>Values: [line | dot | number]</i></td>
+				</tr>
+				<tr>
+					<td>hoverPause</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>
+						Pause slide when hover slider</td>
+				</tr>
+				<tr>
+					<td>Loaded</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after all photos loaded.</td>
+				</tr>
+				<tr>
+					<td>pressPlay</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after press Play.</td>
+				</tr>
+				<tr>
+					<td>pressPause</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after press Pause.</td>
+				</tr>
+				<tr>
+					<td>pressNext</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after press Next.</td>
+				</tr>
+				<tr>
+					<td>pressPrev</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after press Prev.</td>
+				</tr>
+				<tr>
+					<td>beforeSlide</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions before a slide.</td>
+				</tr>
+				<tr>
+					<td>afterSlide</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after a slide.</td>
+				</tr>
+				<tr>
+					<td>goFullscreen</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after enter fullscreen.</td>
+				</tr>
+				<tr>
+					<td>outFullscreen</td>
+					<td>function</td>
+					<td>function (curSlide) {}</td>
+					<td>
+						Custom functions after exit fullscreen.</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'jlider'; // required: replace example with your forum shortname
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/juskteez/jlider/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/juskteez/jlider/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/juskteez/jlider" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <p>Demo generating...</p>
-        </section>
-
-        <footer>
-          Jlider is maintained by <a href="https://github.com/juskteez">juskteez</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
-    </div>
-  </body>
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</body>
 </html>
