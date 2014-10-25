@@ -13,8 +13,7 @@ A jQuery plugin that help you bring slideshow into your web pages. First just si
 - Full width & height (100%) size slide
 - Responsive display option
 - Add link for single photo slide
-- Text & Preview(Thumbnail) type for direct buttons
-- Preview(Thumbnail) type for paging button
+- Preview(Thumbnail) type for direct buttons
 
 ####Fixed:
 - Caption display when there's too much of slides (makes the control paging button grow)
