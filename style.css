@@ -9,11 +9,13 @@ body {
     color: #fff;
 }
 h2 {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
 }
 pre {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     max-height: 300px;
     margin: 20px auto;
     overflow: hidden;
@@ -21,6 +23,16 @@ pre {
     overflow-y: auto;
     background-color: rgba(0,0,0,0.5);
     padding: 10px 0;
+}
+#checkout {
+    background: #fff;
+    padding: 10px;
+    color: #333;
+    font-size: 18px;
+    width: 260px;
+    display: block;
+    text-align: center;
+    margin: 100px auto;
 }
 
 .jlider_frame {

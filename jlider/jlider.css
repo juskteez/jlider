@@ -5,16 +5,21 @@
  *
  * version: 1.0
  */
-.jlider_frame .jlider_control_num button, .jlider_frame .jlider_control_num, .jlider_control, .jlider li .jLsCaption, .jlider_loading {
+.jlider_frame .jlider_control_num button, .jlider_frame .jlider_control_num, .jlider_control, .jlider li .jLsCaption, .jlider_loading, .jLi_h5V_seeker, .jLi_h5V_progress, .jLi_h5V_controller, .jLi_control_pv {
     -webkit-transition: all 0.6s ease;
     -ms-transition: all 0.6s ease;
     -moz-transition: all 0.6s ease;
     -o-transition: all 0.6s ease;
     transition: all 0.6s ease;
 }
+.jlider:hover .jLi_h5V_controller {
+    -webkit-transition: all 1.2s ease;
+    -ms-transition: all 1.2s ease;
+    -moz-transition: all 1.2s ease;
+    -o-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+}
 .jlider_frame, .jlider_frame .jlider {
-    width: 400px;
-    height: 300px;
     position: relative;
     margin: 0 auto;
 }
@@ -29,6 +34,8 @@
 .jlider_frame:fullscreen, .jlider_frame:fullscreen .jlider {
     width: 100% !important;
     height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 .jlider_frame.jliderFull, .jlider_frame:fullscreen {
     position: fixed;
@@ -40,6 +47,8 @@
 .jlider_frame:-ms-full-screen, .jlider_frame:-ms-full-screen .jlider {
     width: 100% !important;
     height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 .jlider_frame:-ms-full-screen {
     position: fixed;
@@ -51,6 +60,8 @@
 .jlider_frame:-moz-full-screen, .jlider_frame:-moz-full-screen .jlider {
     width: 100% !important;
     height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 .jlider_frame:-moz-full-screen {
     position: fixed;
@@ -62,6 +73,8 @@
 .jlider_frame:-webkit-full-screen, .jlider_frame:-webkit-full-screen .jlider {
     width: 100% !important;
     height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 .jlider_frame:-webkit-full-screen {
     position: fixed;
@@ -75,7 +88,7 @@
     overflow: hidden;
     background-color: #333;
 }
-.jlider.noCopy:after {
+.jlider.noCopy > li:before, .fake_link {
     content: "";
     position: absolute;
     top: 0;
@@ -84,6 +97,7 @@
     height: 100%;
     z-index: 8;
 }
+.jlider.noCopy > li.jLi_videoSlide:before {display: none;}
 .jlider_frame *, .jlider_frame *:before, .jlider_frame *:after {box-sizing: border-box;-moz-box-sizing: border-box;}
 .jlider_frame *:focus {outline: none;}
 .jlider_frame .jlider li {
@@ -165,6 +179,7 @@
     background: rgba(0, 0, 0, 0.4);
     list-style: none;
     z-index: 9;
+    overflow-y: hidden;
 }
 .hover > .jlider_control_num {
     bottom: -24px;
@@ -213,7 +228,7 @@
 }
 .jlider_frame .jlider_control {
     border: none;
-    background: rgba(0, 0, 0, 0.5) url(cont.svg) center left no-repeat;
+    background: rgba(0, 0, 0, 0.5);
     width: 40px;
     height: 80px;
     position: absolute;
@@ -222,8 +237,20 @@
     cursor: pointer;
     z-index: 9;
 }
-.jlider_control.prev {
+.jlider_frame .jlider_control:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: red;
+    background: transparent url(cont.svg) center left no-repeat;
+}
+.jlider_control.prev:before {
     background-position: -40px 50%;
+    right: auto;
+    left: 0;
 }
 .jlider_frame .jlider_control:hover {
     background-color: rgba(0, 0, 0, 0.8);
@@ -242,6 +269,29 @@
 } .hover:hover > .jlider_control.next {
     right: 0;
 }
+.jlider_preview .jlider_control:hover {
+    width: 120px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.jLi_control_pv {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.2);
+    top: 0;
+    left: 40px;
+    background-position: left center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.jLi_control_pv.jLi_c_pr {opacity: 0;}
+.jlider_control:hover .jLi_control_pv {left: 0;}
+.jlider_control.prev .jLi_control_pv {
+    left: auto;
+    right: 40px;
+}
+.jlider_control.prev:hover .jLi_control_pv {right: 0;}
 .pause {
     position: absolute;
     top: 5px;
@@ -308,7 +358,7 @@
     -o-transition: all 0.6s ease;
     transition: all 0.6s ease;
 }
-.hide > .jlider_control_num, .hide > .jlider_control, .hide > .pause {
+.hide > .jlider_control_num, .hide > .jlider_control, .hide > .pause, .hide > .jlider_fullScreen {
     display: none;
 }
 .jlider_progress {
@@ -394,6 +444,105 @@
     -o-transform: rotateY(90deg scale(0));
     transform: rotateY(90deg scale(0));
     opacity: 0;
+}
+
+.jLi_videoSlide.buffering:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2) url(load.gif) center no-repeat;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.jLi_h5V_controller {
+    opacity: 0;
+} .jlider_frame.moving .jLi_h5V_controller {opacity: 1;}
+.jLi_h5V_triggers {
+    position: absolute;
+    width: 78px;
+    height: 44px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    margin-left: -39px;
+    top: 5px;
+    left: 50%;
+    z-index: 4;
+}
+.jLi_h5V_trigger, .jLi_h5V_mute {
+    width: 24px;
+    height: 24px;
+    background-image: url(triggers.svg);
+    background-color: transparent;
+    background-size: auto 24px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    background-position: -36px 0;
+}
+.jLi_h5V_trigger.jLi_h5V_pausing {
+    background-position: 0 0;
+}
+.jLi_h5V_mute {
+    margin-right: 0;
+    background-position: -72px 0;
+} .jLi_h5V_muted {
+    background-position: -108px 0;
+}
+.jLi_h5V_seeker {
+    position: absolute;
+    left: 0;
+    bottom: 24px;
+    z-index: 5;
+    cursor: pointer;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(51, 51, 51, 0.6);
+}
+.jlider:hover .jLi_h5V_seeker {
+    height: 8px;
+}
+.jlider_dot.hover .jLi_h5V_seeker, .jlider_number.hover .jLi_h5V_seeker, .jlider_line.hover .jLi_h5V_seeker, .jlider_line.hide .jLi_h5V_seeker {
+    bottom: 0;
+} .jlider_dot.hover:hover .jLi_h5V_seeker, .jlider_number.hover:hover .jLi_h5V_seeker {
+    bottom: 24px;
+} .jlider_line.hover:hover .jLi_h5V_seeker {
+    bottom: 6px;
+}
+.jLi_h5V_progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: transparent;
+    margin-left: -1px;
+}
+.jLi_h5V_progress:before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    width: 4000px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+    z-index: -1;
+}
+.jLi_h5V_progress:after {
+    content: attr(data-jLiTime);
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    padding: 2px 6px;
+    color: rgba(255,255,255,0.7);
+    text-shadow: 0 1px rgba(0,0,0,0.7);
+    font-size: 10px;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 5px;
+    pointer-events: none;
+    display: none;
 }
 
 
