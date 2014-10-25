@@ -19,22 +19,32 @@
 	        slideEffect  : "random",
 	        visiTime     : 6000,
 	        autoPlay     : false,
-	        width        : 600,
-	        height       : 320,
+	        width        : "600px",
+	        height       : "340px",
 	        photoCaption : true,
+	        visiProgress : true,
 	        noCopy       : true,
 	        hideControl  : "hover",
 	        navType      : "line",
-	        Loaded         : function (curSlide) {
+	        Loaded       : function (curSlide) {
 	                            console.log('Loaded...!');
 	                        },
-	        pressPlay      : function (curSlide) {
+	        pressPlay    : function (curSlide) {
 	                            console.log('Pressed Play button...!');
 	                        },
-	        pressPause     : function (curSlide) {
+	        pressPause   : function (curSlide) {
 	                            console.log('Pressed Pause button...!');
 	                        }
 	    });
+
+		// Slider #3
+	    $("#jl3").jliderSlide({
+		    slideEffect  : "random",
+		    autoPlay     : false,
+		    width        : "600px",
+		    height       : "340px",
+		    dirType      : "preview",
+		});
 
 	    // Highlighter
 	    hljs.initHighlightingOnLoad();
@@ -69,12 +79,13 @@
 				<li><a href="https://github.com/juskteez/jlider" id="view-on-github">View on <b>Github</b></a></li>
 			</ul>
 		</nav>
-		<h2 id="demo">Slider #1 Basic Usage</h2>
+		<h2 id="demo">Slider #1 Basic Usage (Included HTML5 Video Slide)</h2>
 		<ul class="jlider" id="jl1">
 			<li><img src="img/1.jpg" alt="Lorem ipsum dolor sit amet." title="Image Title 1"/></li>
 			<li><img src="img/2.jpg" alt="2.jpg" title="Image Title 2"/></li>
 			<li><img src="img/3.jpg" title="Image Title 3"/></li>
 			<li><img src="img/4.jpg" title="Image Title 4"/></li>
+			<li><video poster="video/bbb.jpg"><source src="video/bbb.ogv" type="video/ogg"/><source src="video/bbb.mp4" type="video/mp4" />Your browser does not support HTML5 video.</video></li>
 			<li><img src="img/5.jpg" alt="5.jpg" title="Image Title 5"/></li>
 			<li><img src="img/6.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit" title="Image Title 6"/></li>
 			<li><img src="img/7.jpg" alt="7.jpg" title="Image Title 7"/></li>
@@ -103,38 +114,63 @@
 		<hr/>
 		<h2>Slider #2 Custom Usage</h2>
 		<ul class="jlider" id="jl2">
-			<li><img src="nfs/2_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." title="Image Title 1"/></li>
-			<li><img src="nfs/3_1.jpg" alt="3.jpg" title="Image Title 2"/></li>
-			<li><img src="nfs/1_1.jpg" title="Image Title 3"/></li>
-			<li><img src="nfs/4_1.jpg" title="Image Title 4"/></li>
-			<li><img src="nfs/5_1.jpg" alt="5.jpg" title="Image Title 5"/></li>
-			<li><img src="nfs/6_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="Image Title 6"/></li>
-			<li><img src="nfs/7_1.jpg" alt="7.jpg" title="Image Title 7"/></li>
+			<li><img src="nfs/1.jpg" data-href="http://bit.ly" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." title="Image Title 1"/></li>
+			<li><img src="nfs/2.jpg" alt="3.jpg" title="Image Title 2"/></li>
+			<li><img src="nfs/3.jpg" title="Image Title 3"/></li>
+			<li><img src="nfs/4.jpg" title="Image Title 4"/></li>
+			<li><img src="nfs/5.jpg" alt="5.jpg" title="Image Title 5"/></li>
+			<li><img src="nfs/6.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="Image Title 6"/></li>
+			<li><img src="nfs/7.jpg" alt="7.jpg" title="Image Title 7"/></li>
 		</ul>
 		<pre><code>
     $("#jl2").jliderSlide({
-        slideEffect  : "random",
-        visiTime     : 6000,
-        autoPlay     : true,
-        width        : 600,
-        height       : 320,
-        photoCaption : true,
-        noCopy       : true,
-        hideControl  : "hover",
-        fullScreen   : true,
-        navType      : "line",
-        Loaded       : function (curSlide) {
-                        	console.log('Loaded...!');
-                    	},
-        pressPlay    : function (curSlide) {
-                            console.log('Pressed Play button...!');
-                        },
-        pressPause   : function (curSlide) {
-                            console.log('Pressed Pause button...!');
-                        }
-    });
+	    slideEffect  : "random",
+	    visiTime     : 6000,
+	    autoPlay     : false,
+	    width        : "600px",
+	    height       : "340px",
+	    photoCaption : true,
+	    visiProgress : true,
+	    noCopy       : true,
+	    hideControl  : "hover",
+	    navType      : "line",
+	    oaded        : function (curSlide) {
+	                        console.log('Loaded...!');
+	                    },
+	    pressPlay    : function (curSlide) {
+	                        console.log('Pressed Play button...!');
+	                    },
+	    pressPause   : function (curSlide) {
+	                        console.log('Pressed Pause button...!');
+	                    }
+	});
 		</code></pre>
 		<hr/>
+		<h2>Slider #3 Preview Thumbnail Usage</h2>
+		<ul class="jlider" id="jl3">
+			<li><img src="nfs/1.jpg" data-href="http://bit.ly" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." title="Image Title 1" poster="nfs/1_thumb.jpg"/></li>
+			<li><img src="nfs/2.jpg" alt="3.jpg" title="Image Title 2" poster="nfs/2_thumb.jpg"/></li>
+			<li><img src="nfs/3.jpg" title="Image Title 3"/></li>
+			<li><img src="nfs/4.jpg" title="Image Title 4"/></li>
+			<li><img src="nfs/5.jpg" alt="5.jpg" title="Image Title 5" poster="nfs/5_thumb.jpg"/></li>
+			<li><img src="nfs/6.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="Image Title 6" poster="nfs/6_thumb.jpg"/></li>
+			<li><img src="nfs/7.jpg" alt="7.jpg" title="Image Title 7" poster="nfs/7_thumb.jpg"/></li>
+		</ul>
+	<pre><code>
+    $("#jl3").jliderSlide({
+	    slideEffect  : "random",
+	    autoPlay     : false,
+	    width        : "600px",
+	    height       : "340px",
+	    dirType      : "preview",
+	});
+		</code></pre>
+		<hr/>
+		<nav id="navbar">
+			<ul>
+				<li><a href="responsive.html" id="responsive-demo">Check Out <b>Responsive</b> Demo</a></li>
+			</ul>
+		</nav>
 		<h2 id="getting-started">Getting Started</h2>
 		<h3>Installation:</h3>
 		<a href="#navbar">Download</a> and extract your file then copy the "jlider" folder to your site folder.<br/><br/>
@@ -154,7 +190,8 @@
 &#60;ul class="jlider" id="yourSelector"&#62;
     &#60;li&#62;&#60;img src="path/to/image/1.jpg" alt="Photo caption content goes here" title="Your Image Title 1"/&#62;&#60;/li&#62;
     &#60;li&#62;&#60;img src="path/to/image/2.jpg" alt="Your alt" title="Your Image Title 2"/&#62;&#60;/li&#62;
-    &#60;li&#62;&#60;img src="path/to/image/3.jpg" title="Your Image Title 3"/&#62;&#60;/li&#62;
+    &#60;li&#62;&#60;img src="path/to/image/3.jpg" title="Your Image Title 3" poster="path/to/thumbnail.jpg"/&#62;&#60;/li&#62;
+    &#60;li&#62;&#60;video poster="path/to/video_thumbnail.jpg"&#62;&#60;source src="path/to/video.ogv" type="video/ogg"/&#62;&#60;source src="path/to/video.mp4" type="video/mp4" /&#62;Your browser does not support HTML5 video.&#60;/video&#62;&#60;/li&#62;
     &#60;!-- And more images --&#62;
 &#60;/ul&#62;
     	</code></pre>
@@ -209,17 +246,32 @@
 				</tr>
 				<tr>
 					<td>width</td>
-					<td>number</td>
-					<td>600</td>
+					<td>string</td>
+					<td>600px</td>
 					<td>
-						Slider width(px).</td>
+						Slider width (pixel or percent).</td>
 				</tr>
 				<tr>
 					<td>height</td>
-					<td>number</td>
-					<td>380</td>
+					<td>string</td>
+					<td>380px</td>
 					<td>
-						Slider height(px).</td>
+						Slider height (pixel or percent).</td>
+				</tr>
+				<tr>
+					<td>ratio</td>
+					<td>string</td>
+					<td>no</td>
+					<td>
+						Slider ratio.<br/>
+						<i>Values: [no | 4:3 | 16:9 | X:Y]</i></td>
+				</tr>
+				<tr>
+					<td>responsive</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>
+						Turn on responsive view for slider</td>
 				</tr>
 				<tr>
 					<td>photoCaption</td>
@@ -242,6 +294,14 @@
 					<td>
 						Control buttons style.<br/>
 						<i>Values: [visible | hover | hide]</i></td>
+				</tr>
+				<tr>
+					<td>dirType</td>
+					<td>string</td>
+					<td>arrow</td>
+					<td>
+						Navigation button type.<br/>
+						<i>Values: [arrow | preview]</i></td>
 				</tr>
 				<tr>
 					<td>fullScreen</td>

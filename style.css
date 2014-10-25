@@ -34,6 +34,10 @@ body {
     margin: 0 auto;
     padding: 20px 0;
 }
+.wrapper.responsive_demo {
+    width: 100%;
+    max-width: 600px;
+}
 header, nav {
     border-bottom: 1px solid rgba(255,255,255,0.2);
     margin-bottom: 20px;
