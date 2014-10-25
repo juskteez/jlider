@@ -158,3 +158,23 @@ h3:before {
     position: relative;
     margin: 20px auto;
 }
+
+@media screen and (max-width: 600px) {
+
+    .responsive_demo header, .responsive_demo nav {
+        padding: 0 20px;
+    }
+
+    .responsive_demo nav li {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .responsive_demo nav li a {
+        width: 100%;
+        margin-left: 0;
+    }
+    .responsive_demo h2 {
+        padding: 0 20px;
+    }
+
+}
